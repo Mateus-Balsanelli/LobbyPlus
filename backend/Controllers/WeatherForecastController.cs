@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Data;
+using backend.Data.interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -26,6 +28,8 @@ namespace backend.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            Console.WriteLine("teste");
+            
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -35,5 +39,13 @@ namespace backend.Controllers
             })
             .ToArray();
         }
+
+        //[HttpPost]
+        //public void Post()
+        //{
+        //    UserRepository add = new UserRepository();
+        //    add.AddUser();
+  
+        //}
     }
 }

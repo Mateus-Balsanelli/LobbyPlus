@@ -31,5 +31,7 @@ namespace backend.Model
         /// popularidade do jogo
         /// </summary>
         public long Popularity { get; set; }
+
+        public string ImageLink { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,14 +12,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace backend
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //_dBconnection.connect();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +31,9 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string mysqlConnection = Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContextPool<ApplicationDBContext>(options => options.UseMySql(mysqlConnection, ServerVersion.AutoDetect(mysqlConnection))); 
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -54,6 +62,8 @@ namespace backend
             {
                 endpoints.MapControllers();
             });
+
+            
         }
     }
 }
