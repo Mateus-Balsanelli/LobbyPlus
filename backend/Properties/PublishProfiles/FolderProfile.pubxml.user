@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\project\LobbyPlus\backend\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2021-06-21T15:47:48.7057406Z;True|2021-06-20T21:49:16.8919190-03:00;True|2021-06-20T19:13:36.9514428-03:00;True|2021-06-20T15:00:28.7271085-03:00;True|2021-06-20T12:58:41.1464386-03:00;True|2021-06-19T23:13:15.6597963-03:00;</History>
+  </PropertyGroup>
+</Project>

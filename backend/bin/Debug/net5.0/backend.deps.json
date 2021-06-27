@@ -39,6 +39,8 @@
           "Microsoft.EntityFrameworkCore.Sqlite": "5.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "NSwag.CodeGeneration.TypeScript": "13.11.3",
+          "NSwag.MSBuild": "13.11.3",
           "Pomelo.EntityFrameworkCore.MySql": "5.0.0",
           "Pomelo.EntityFrameworkCore.MySql.Design": "1.1.2",
           "Swashbuckle.AspNetCore": "6.1.4",
@@ -329,6 +331,22 @@
         },
         "compile": {
           "backend.dll": {}
+        }
+      },
+      "DotLiquid/2.0.385": {
+        "runtime": {
+          "lib/netstandard1.3/DotLiquid.dll": {
+            "assemblyVersion": "2.0.385.0",
+            "fileVersion": "2.0.385.0"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.3/it/DotLiquid.resources.dll": {
+            "locale": "it"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/DotLiquid.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -1188,6 +1206,20 @@
           "lib/net5.0/MySqlConnector.dll": {}
         }
       },
+      "Namotion.Reflection/1.0.23": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Namotion.Reflection.dll": {
+            "assemblyVersion": "1.0.23.0",
+            "fileVersion": "1.0.23.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Namotion.Reflection.dll": {}
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1247,6 +1279,102 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "NJsonSchema/10.4.4": {
+        "dependencies": {
+          "Namotion.Reflection": "1.0.23",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NJsonSchema.dll": {
+            "assemblyVersion": "10.4.4.0",
+            "fileVersion": "10.4.4.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NJsonSchema.dll": {}
+        }
+      },
+      "NJsonSchema.CodeGeneration/10.4.4": {
+        "dependencies": {
+          "DotLiquid": "2.0.385",
+          "NJsonSchema": "10.4.4",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NJsonSchema.CodeGeneration.dll": {
+            "assemblyVersion": "10.4.4.0",
+            "fileVersion": "10.4.4.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NJsonSchema.CodeGeneration.dll": {}
+        }
+      },
+      "NJsonSchema.CodeGeneration.TypeScript/10.4.4": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "NJsonSchema": "10.4.4",
+          "NJsonSchema.CodeGeneration": "10.4.4",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NJsonSchema.CodeGeneration.TypeScript.dll": {
+            "assemblyVersion": "10.4.4.0",
+            "fileVersion": "10.4.4.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NJsonSchema.CodeGeneration.TypeScript.dll": {}
+        }
+      },
+      "NSwag.CodeGeneration/13.11.3": {
+        "dependencies": {
+          "NJsonSchema": "10.4.4",
+          "NJsonSchema.CodeGeneration": "10.4.4",
+          "NSwag.Core": "13.11.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NSwag.CodeGeneration.dll": {
+            "assemblyVersion": "13.11.3.0",
+            "fileVersion": "13.11.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NSwag.CodeGeneration.dll": {}
+        }
+      },
+      "NSwag.CodeGeneration.TypeScript/13.11.3": {
+        "dependencies": {
+          "NJsonSchema.CodeGeneration.TypeScript": "10.4.4",
+          "NSwag.CodeGeneration": "13.11.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NSwag.CodeGeneration.TypeScript.dll": {
+            "assemblyVersion": "13.11.3.0",
+            "fileVersion": "13.11.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NSwag.CodeGeneration.TypeScript.dll": {}
+        }
+      },
+      "NSwag.Core/13.11.3": {
+        "dependencies": {
+          "NJsonSchema": "10.4.4",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NSwag.Core.dll": {
+            "assemblyVersion": "13.11.3.0",
+            "fileVersion": "13.11.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NSwag.Core.dll": {}
+        }
+      },
+      "NSwag.MSBuild/13.11.3": {},
       "Pomelo.EntityFrameworkCore.MySql/5.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "5.0.7",
@@ -4139,6 +4267,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "DotLiquid/2.0.385": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K72jbcnR+HMizYmc7+04XQaGRpLzMowy4TjW7HbHNk8v1YHnTtomqLar39HCdITh18rEawgmGvtaPHJGrYIW0w==",
+      "path": "dotliquid/2.0.385",
+      "hashPath": "dotliquid.2.0.385.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -4559,6 +4694,13 @@
       "path": "mysqlconnector/1.3.7",
       "hashPath": "mysqlconnector.1.3.7.nupkg.sha512"
     },
+    "Namotion.Reflection/1.0.23": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a9KMvqCS0YZcsI5Ten89KCYSXQTtvgaqUzGNBqVl2T+ywGrz/+Y5o3x3yre5ZZho8z6rgu3Z5CC6RV06t2JaPQ==",
+      "path": "namotion.reflection/1.0.23",
+      "hashPath": "namotion.reflection.1.0.23.nupkg.sha512"
+    },
     "NETStandard.Library/1.6.1": {
       "type": "package",
       "serviceable": true,
@@ -4572,6 +4714,55 @@
       "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "NJsonSchema/10.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gOM0rrSWGbz3KBnGIMUA/N+5rqM2C9kaOVbFYhw9NDJegt7sBJ8Iz3gAnLX0pD+rsq5TtNKicWf9Ff3Q1DvDZw==",
+      "path": "njsonschema/10.4.4",
+      "hashPath": "njsonschema.10.4.4.nupkg.sha512"
+    },
+    "NJsonSchema.CodeGeneration/10.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TnF1dH07bovYkVDjBoZFOcViLqip1bjP51wbx6sVJsMwzuf3j5ZiDFMdIH7xF/qu/M72ew+ZGRHCyz6u2HhUJA==",
+      "path": "njsonschema.codegeneration/10.4.4",
+      "hashPath": "njsonschema.codegeneration.10.4.4.nupkg.sha512"
+    },
+    "NJsonSchema.CodeGeneration.TypeScript/10.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+5XdXzhwRRSeJPkXY+qwRg5ZyxjRH0pMWqB8zR2ITD4BGvKxdVw1B3I6tJ0hunZ6CDFRSpXEp8uH79WILkRjSA==",
+      "path": "njsonschema.codegeneration.typescript/10.4.4",
+      "hashPath": "njsonschema.codegeneration.typescript.10.4.4.nupkg.sha512"
+    },
+    "NSwag.CodeGeneration/13.11.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6lFtFcp0SFU6Ie45QOguEXEPzcfyR5ldqGsTMYhHx2C0YbTSlwLdbN+/OzP6SQapHTkI3LCCinzgRn2JL+neow==",
+      "path": "nswag.codegeneration/13.11.3",
+      "hashPath": "nswag.codegeneration.13.11.3.nupkg.sha512"
+    },
+    "NSwag.CodeGeneration.TypeScript/13.11.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7C2vnmDzCmmwKeaKIobMTXxekm4tO0nC/EvM5ZbUdq5hkuvpJcnkt68x0hMqk3QmKHtnIZJchUfnwpl8nH/eMA==",
+      "path": "nswag.codegeneration.typescript/13.11.3",
+      "hashPath": "nswag.codegeneration.typescript.13.11.3.nupkg.sha512"
+    },
+    "NSwag.Core/13.11.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jXeEdlaM9g/rIPll9FYUEujCfr6DsazQ4dN7Yl8YvRk8fSgjXdld2jSEg9V3pt07XfvPCMwcxobMO7b1tcIP7g==",
+      "path": "nswag.core/13.11.3",
+      "hashPath": "nswag.core.13.11.3.nupkg.sha512"
+    },
+    "NSwag.MSBuild/13.11.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/ho6Vs7VN9hooHOUhA6rCLPQy9tBxfwqGzYXmToOzOoTi8rBzq0n0M7mRZc/BXJycWwMT4g/tomKxK62dFZtkA==",
+      "path": "nswag.msbuild/13.11.3",
+      "hashPath": "nswag.msbuild.13.11.3.nupkg.sha512"
     },
     "Pomelo.EntityFrameworkCore.MySql/5.0.0": {
       "type": "package",

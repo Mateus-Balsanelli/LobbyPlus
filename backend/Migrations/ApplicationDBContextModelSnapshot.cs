@@ -26,6 +26,9 @@ namespace backend.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Developer")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Gender")
                         .HasColumnType("longtext");
 
@@ -35,10 +38,15 @@ namespace backend.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
+                    b.Property<long?>("PageId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("Popularity")
                         .HasColumnType("bigint");
 
                     b.HasKey("GameId");
+
+                    b.HasIndex("PageId");
 
                     b.ToTable("games");
                 });
@@ -49,7 +57,7 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("GameId")
+                    b.Property<long>("GameId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("LinkYoutube")
@@ -58,10 +66,10 @@ namespace backend.Migrations
                     b.Property<string>("MainPage")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ReleaseNotes")
+                    b.Property<string>("Podcast")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Resume")
+                    b.Property<string>("ReleaseNotes")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Updates")
@@ -70,9 +78,10 @@ namespace backend.Migrations
                     b.Property<string>("longDescription")
                         .HasColumnType("longtext");
 
-                    b.HasKey("PageId");
+                    b.Property<string>("platforms")
+                        .HasColumnType("longtext");
 
-                    b.HasIndex("GameId");
+                    b.HasKey("PageId");
 
                     b.ToTable("pages");
                 });
@@ -114,7 +123,7 @@ namespace backend.Migrations
                             Email = "teste@teste",
                             GenrePreferred = "FPS",
                             Password = "teste",
-                            Registered = new DateTime(2021, 6, 19, 16, 5, 37, 316, DateTimeKind.Local).AddTicks(4953),
+                            Registered = new DateTime(2021, 6, 20, 20, 40, 42, 688, DateTimeKind.Local).AddTicks(9354),
                             UserName = "Mateus"
                         },
                         new
@@ -124,7 +133,7 @@ namespace backend.Migrations
                             Email = "teste@teste",
                             GenrePreferred = "FPS",
                             Password = "teste",
-                            Registered = new DateTime(2021, 6, 19, 16, 5, 37, 316, DateTimeKind.Local).AddTicks(6301),
+                            Registered = new DateTime(2021, 6, 20, 20, 40, 42, 689, DateTimeKind.Local).AddTicks(879),
                             UserName = "teste"
                         },
                         new
@@ -134,18 +143,18 @@ namespace backend.Migrations
                             Email = "teste@teste",
                             GenrePreferred = "FPS",
                             Password = "teste",
-                            Registered = new DateTime(2021, 6, 19, 16, 5, 37, 316, DateTimeKind.Local).AddTicks(6306),
+                            Registered = new DateTime(2021, 6, 20, 20, 40, 42, 689, DateTimeKind.Local).AddTicks(890),
                             UserName = "alner"
                         });
                 });
 
-            modelBuilder.Entity("backend.Model.Page", b =>
+            modelBuilder.Entity("backend.Model.Game", b =>
                 {
-                    b.HasOne("backend.Model.Game", "game")
+                    b.HasOne("backend.Model.Page", "page")
                         .WithMany()
-                        .HasForeignKey("GameId");
+                        .HasForeignKey("PageId");
 
-                    b.Navigation("game");
+                    b.Navigation("page");
                 });
 #pragma warning restore 612, 618
         }

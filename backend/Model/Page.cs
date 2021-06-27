@@ -9,9 +9,11 @@ namespace backend.Model
     {
         public long PageId { get; set; }
 
+        public long GameId { get; set; }
+
         public string MainPage { get; set; }
 
-        public string Resume { get; set; }
+        public string Platforms { get; set; }
 
         public string longDescription { get; set; }
 
@@ -21,6 +23,6 @@ namespace backend.Model
 
         public string ReleaseNotes { get; set; }
 
-        public Game game { get; set; }
+        public string Podcast { get; set; }
     }
 }

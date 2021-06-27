@@ -25,14 +25,14 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> Getgames()
         {
-            return await _context.games.ToListAsync();
+            return await _context.games.Include(p => p.page).ToListAsync();
         }
 
         // GET: api/Game/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(long id)
         {
-            var game = await _context.games.FindAsync(id);
+            var game = await _context.games.Include(p => p.page).Where(p => p.GameId == id).FirstAsync();
 
             if (game == null)
             {
@@ -52,7 +52,23 @@ namespace backend.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(game).State = EntityState.Modified;
+            var gameDb = _context.games.Include(p => p.page).Where(p => p.GameId == id).FirstOrDefault();
+
+            gameDb.Name = game.Name;
+            gameDb.Gender = game.Gender;
+            gameDb.Description = game.Description;
+            gameDb.Popularity = game.Popularity;
+            gameDb.ImageLink = game.ImageLink;
+            gameDb.Developer = game.Developer;
+
+            gameDb.page.MainPage = game.page.MainPage;
+            gameDb.page.Platforms = game.page.Platforms;
+            gameDb.page.longDescription = game.page.longDescription;
+            gameDb.page.LinkYoutube = game.page.LinkYoutube;
+            gameDb.page.ReleaseNotes = game.page.ReleaseNotes;
+            gameDb.page.Podcast = game.page.Podcast;
+
+            _context.Entry(gameDb).State = EntityState.Modified;
 
             try
             {
@@ -76,19 +92,20 @@ namespace backend.Controllers
         // POST: api/Game
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<Game>> PostGame(Game game)
         {
             _context.games.Add(game);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGame", new { id = game.GameId }, game);
+            return CreatedAtAction("GetGame", new { id = game.GameId }, game);           
         }
 
         // DELETE: api/Game/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGame(long id)
         {
-            var game = await _context.games.FindAsync(id);
+            var game = await _context.games.Include(p => p.page).Where(p => p.GameId == id).FirstOrDefaultAsync();
             if (game == null)
             {
                 return NotFound();

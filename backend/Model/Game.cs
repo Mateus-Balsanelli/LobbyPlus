@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,5 +34,10 @@ namespace backend.Model
         public long Popularity { get; set; }
 
         public string ImageLink { get; set; }
+
+        public string Developer { get; set; }
+        
+        [ForeignKey("PageId")]
+        public virtual Page page { get; set; }
     }
 }
